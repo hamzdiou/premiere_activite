@@ -1,0 +1,43 @@
+﻿**Installer l'environnement du projet**
+$ mkdir projectname
+$ cd projectname
+$ virtualenv env -p python3
+$ . env/bin/activate
+$ pip install django
+$ python -m django --version
+1.11.3
+$ django-admin startproject projectname_project
+
+** Mise en place de la base de données PosteGreSQL (installer via installer pour Windows + pgAdmin **
+$ pip install psycopg2
+
+** Reporter les packages installés sur l'environnement du projet : **
+pip freeze > requirements.txt
+
+** Installer les packages présents dans requirements_env-bteaching.txt : **
+pip install -r requirements.txt
+
+** Génerer une cléf SSH sur le serveur distant **
+ssh-keygen -t rsa
+
+** Exporter la base de donnée en format JSON **
+python manage.py dumpdata (app) > ./dumps/db.json
+ou
+python manage.py dumpdata store -o store/dumps/store.json
+
+** Montrer les migrations **
+manage.py showmigrations
+
+** Console Django **
+manage.py shell
+
+** Redemarrage de la console pour charger les models à nouveau **
+from importlib import reload
+reload(store.models)
+from store.models import Artist
+
+** POSTGRE SQL **
+psql nom_table : pr se connecter
+\dt : pour afficher les tables
+\d nom_table : pour afficher une table
+
