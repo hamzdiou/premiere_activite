@@ -31,11 +31,6 @@ manage.py showmigrations
 ** Console Django **
 manage.py shell
 
-** Redemarrage de la console pour charger les models à nouveau **
-from importlib import reload
-reload(store.models)
-from store.models import Artist
-
 ** POSTGRE SQL **
 psql nom_table : pr se connecter
 \dt : pour afficher les tables
